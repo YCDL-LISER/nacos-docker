@@ -1,0 +1,23 @@
+version: "2"
+services:
+  nacos:
+    image: nacos/nacos-server:latest:1.0.0
+    container_name: ycdl-nacos-mysql
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_MASTER_SERVICE_HOST=mysql-master
+      - MYSQL_MASTER_SERVICE_DB_NAME=ycdl_nacos
+      - MYSQL_MASTER_SERVICE_PORT=3306
+      - MYSQL_SLAVE_SERVICE_HOST=mysql-slave
+      - MYSQL_SLAVE_SERVICE_PORT=3305
+      - MYSQL_MASTER_SERVICE_USER=nacos
+      - MYSQL_MASTER_SERVICE_PASSWORD=nacos
+    volumes:
+      - ./standalone-logs/:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+      - "9555:9555"
+    restart: on-failure
