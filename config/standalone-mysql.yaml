@@ -7,7 +7,7 @@ services:
       - PREFER_HOST_MODE=hostname
       - MODE=standalone
       - SPRING_DATASOURCE_PLATFORM=mysql
-      - MYSQL_MASTER_SERVICE_HOST=mysql-master
+      - MYSQL_MASTER_SERVICE_HOST=127.0.0.1
       - MYSQL_MASTER_SERVICE_DB_NAME=ycdl_nacos
       - MYSQL_MASTER_SERVICE_PORT=3306
       - MYSQL_SLAVE_SERVICE_HOST=mysql-slave
