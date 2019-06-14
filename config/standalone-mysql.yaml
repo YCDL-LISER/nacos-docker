@@ -1,7 +1,7 @@
 version: "2"
 services:
   nacos:
-    image: nacos/nacos-server:latest:1.0.0
+    image: nacos/nacos-server:1.0.0
     container_name: ycdl-nacos-mysql
     environment:
       - PREFER_HOST_MODE=hostname
